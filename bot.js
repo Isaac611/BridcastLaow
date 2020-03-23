@@ -1,22 +1,14 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 var prefix = "$"
-var adminprefix = '$' 
-const developers = ["681107272801583154","id"]
+var adminprefix = '$'
 
 
-//bc 
-
-client.on('message', message => {
-    if (message.content == "احم")
-    if (!developers.includes(message.author.id))  return; {
-    message.channel.send("$obc **سيرفر ويندوز يعود بقوة بفعاليات وجوائز قيمة كنت انت من الأوائل التي تدخل واربح جوائز قيمة واليوم في قيف اواي على 200 الف بلا شرط بس أدخل **");
-    }
-  });   
+//bc
 
 client.on("message", message => {
     if (message.content.startsWith("$obc")) {
-                 if (!message.member.hasPermission("ADMINISTRATOR") || !developers.includes(message.author.id))  return;
+                 if (!message.member.hasPermission("ADMINISTRATOR"))  return;
   let args = message.content.split(" ").slice(1);
   var argresult = args.join(' ');
   message.guild.members.filter(m => m.presence.status !== 'all').forEach(m => {
@@ -36,7 +28,7 @@ client.on("message", message => {
   client.on("message", message => {
   
               if (message.content.startsWith(prefix + "bc")) {
-                           if (!message.member.hasPermission("ADMINISTRATOR") || !developers.includes(message.author.id))  return;
+                           if (!message.member.hasPermission("ADMINISTRATOR"))  return;
     let args = message.content.split(" ").slice(1);
     var argresult = args.join(' '); 
     message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
@@ -65,7 +57,7 @@ client.on('ready',  () => {
     if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
 if (message.content.startsWith('$adminbc')){
-if(!message.author.id === '681107272801583154') return;
+if(!message.author.id === '476185102922285066') return;
 message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
 client.users.forEach(m =>{
 m.sendMessage(args)
@@ -98,7 +90,7 @@ m.sendMessage(args)
    }
    });
 
-
+const developers = ["472413769700474901","id"]
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!developers.includes(message.author.id)) return;
