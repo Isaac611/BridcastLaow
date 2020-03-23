@@ -5,7 +5,13 @@ var adminprefix = '$'
 const developers = ["681107272801583154","id"]
 
 
-//bc
+//bc 
+
+client.on('message', message => {
+    if (message.content == "احم") {
+    message.channel.send("$obc **سيرفر ويندوز يعود بقوة بفعاليات وجوائز قيمة كنت انت من الأوائل التي تدخل واربح جوائز قيمة واليوم في قيف اواي على 200 الف بلا شرط بس أدخل **");
+    }
+  });   
 
 client.on("message", message => {
     if (message.content.startsWith("$obc")) {
