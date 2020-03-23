@@ -1,14 +1,15 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 var prefix = "$"
-var adminprefix = '$'
+var adminprefix = '$' 
+const developers = ["681107272801583154","id"]
 
 
 //bc
 
 client.on("message", message => {
     if (message.content.startsWith("$obc")) {
-                 if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+                 if (!message.member.hasPermission("ADMINISTRATOR") || !developers.includes(message.author.id))  return;
   let args = message.content.split(" ").slice(1);
   var argresult = args.join(' ');
   message.guild.members.filter(m => m.presence.status !== 'all').forEach(m => {
@@ -28,7 +29,7 @@ client.on("message", message => {
   client.on("message", message => {
   
               if (message.content.startsWith(prefix + "bc")) {
-                           if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+                           if (!message.member.hasPermission("ADMINISTRATOR") || !developers.includes(message.author.id))  return;
     let args = message.content.split(" ").slice(1);
     var argresult = args.join(' '); 
     message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
@@ -57,7 +58,7 @@ client.on('ready',  () => {
     if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
 if (message.content.startsWith('$adminbc')){
-if(!message.author.id === '476185102922285066') return;
+if(!message.author.id === '681107272801583154') return;
 message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
 client.users.forEach(m =>{
 m.sendMessage(args)
@@ -90,7 +91,7 @@ m.sendMessage(args)
    }
    });
 
-const developers = ["472413769700474901","id"]
+
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!developers.includes(message.author.id)) return;
